@@ -1,0 +1,2 @@
+[main/sessions/e1e0ea89-fcdf-46f0-a2e2-24042789e4c9.jsonl#L5] User: Run the following periodic tasks (only those due based on their intervals): - weekly-health-review: Review the last 7 days of sessions, health logs, structured health files, biometrics, WHOOP summaries under health/whoop/, nutrition, training, supplements, and indexed media
+[main/sessions/e1e0ea89-fcdf-46f0-a2e2-24042789e4c9.jsonl#L31] Assistant: HEARTBEAT_OK

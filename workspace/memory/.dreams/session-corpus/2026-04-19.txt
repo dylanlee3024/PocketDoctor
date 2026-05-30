@@ -1,0 +1,2 @@
+[main/sessions/d443b2d9-63c8-4a2a-bfab-35f6a295217c.jsonl#L5] User: Run the following periodic tasks (only those due based on their intervals): - daily-feelings-synthesis: Review the newest daily health log, recent meals, training entries, supplements, WHOOP summaries, and any symptom or mood reports. If there is enough signal, append a con
+[main/sessions/d443b2d9-63c8-4a2a-bfab-35f6a295217c.jsonl#L50] Assistant: HEARTBEAT_OK

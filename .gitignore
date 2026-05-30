@@ -1,0 +1,100 @@
+# ============================================================
+# CREDENTIALS & SECRETS — never commit these
+# ============================================================
+
+# Main config (contains Gemini API key, gateway token, Telegram IDs)
+openclaw.json
+openclaw.json.bak
+openclaw.json.bak.*
+
+# Device identity & private keys
+identity/
+
+# WHOOP OAuth tokens
+whoop/token.json
+whoop/oauth-state.json
+whoop/sync.lock
+
+# OpenAI API key, JWT tokens, auth state
+agents/main/agent/auth-profiles.json
+agents/main/agent/auth-state.json
+
+# Exec approval socket token
+exec-approvals.json
+
+# Telegram state (update offset, command hashes)
+telegram/
+
+# Gateway auth (local token)
+gateway/
+
+# ============================================================
+# PERSONAL IDENTITY — name, age, height, weight, email
+# ============================================================
+workspace/USER.md
+workspace/health/profile.md
+workspace/health/biometrics.md
+workspace/health/whoop/profile.json
+workspace/health/whoop/body_measurement.json
+
+# ============================================================
+# RUNTIME & EPHEMERAL STATE
+# ============================================================
+
+# Conversation session history
+agents/main/sessions/
+
+# SQLite databases (binary, not useful in git)
+memory/main.sqlite
+tasks/
+
+# Background delivery queue
+delivery-queue/
+
+# Browser profile data
+browser/
+
+# Cron run logs (ephemeral)
+cron/runs/
+
+# Device pairing state
+devices/
+
+# Command audit logs
+logs/
+
+# Update check state
+update-check.json
+
+# ============================================================
+# MEDIA — personal inbound photos
+# ============================================================
+media/inbound/
+
+# ============================================================
+# OS / EDITOR / IDE
+# ============================================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.claude/
+*.swp
+*.swo
+
+# Compiled bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# ============================================================
+# SECRETS (catch-all patterns)
+# ============================================================
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+.env
+.env.*

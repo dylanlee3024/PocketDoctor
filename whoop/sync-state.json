@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "cycles": 2,
+    "daily_files": 2,
+    "recoveries": 1,
+    "sleeps": 1,
+    "workouts": 1
+  },
+  "last_successful_sync_at": "2026-04-15T23:39:41.028145Z",
+  "last_sync_started_at": "2026-05-30T18:15:39.476838Z",
+  "latest_day": "2026-04-15",
+  "lookback_days": 21
+}

@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.4.14",
+    "lastTouchedAt": "2026-04-15T02:24:50.265Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-22T23:12:25.042Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "openai:default": {
+        "provider": "openai",
+        "mode": "api_key"
+      }
+    }
+  },
+  "env": {
+    "GEMINI_API_KEY": "YOUR_GEMINI_API_KEY"
+  },
+  "agents": {
+    "defaults": {
+      "bootstrapMaxChars": 5000,
+      "bootstrapTotalMaxChars": 24000,
+      "model": {
+        "primary": "openai/gpt-5.4-mini"
+      },
+      "models": {
+        "openai/gpt-5.4": {},
+        "openai/gpt-5.4-mini": {}
+      },
+      "workspace": "/path/to/your/workspace",
+      "compaction": {
+        "mode": "safeguard",
+        "reserveTokens": 50000,
+        "keepRecentTokens": 12000,
+        "reserveTokensFloor": 12000,
+        "maxHistoryShare": 0.35,
+        "recentTurnsPreserve": 4,
+        "postIndexSync": "async",
+        "model": "openai/gpt-5.4-mini",
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 12000,
+          "forceFlushTranscriptBytes": "2mb"
+        }
+      },
+      "contextPruning": {
+        "mode": "cache-ttl",
+        "ttl": "5m"
+      },
+      "heartbeat": {
+        "every": "24h",
+        "model": "openai/gpt-5.4-mini",
+        "lightContext": true,
+        "isolatedSession": true,
+        "target": "none"
+      },
+      "memorySearch": {
+        "provider": "gemini",
+        "model": "gemini-embedding-2-preview",
+        "fallback": "none",
+        "sources": [
+          "memory",
+          "sessions"
+        ],
+        "experimental": {
+          "sessionMemory": true
+        },
+        "extraPaths": [
+          "/path/to/your/workspace/health",
+          "/path/to/your/media/inbound"
+        ],
+        "query": {
+          "hybrid": {
+            "vectorWeight": 0.75,
+            "textWeight": 0.25,
+            "mmr": {
+              "enabled": true,
+              "lambda": 0.7
+            },
+            "temporalDecay": {
+              "enabled": true,
+              "halfLifeDays": 21
+            }
+          }
+        },
+        "multimodal": {
+          "enabled": true,
+          "modalities": [
+            "all"
+          ],
+          "maxFileBytes": 25000000
+        },
+        "cache": {
+          "enabled": true,
+          "maxEntries": 50000
+        }
+      },
+      "maxConcurrent": 1,
+      "subagents": {
+        "maxConcurrent": 1
+      }
+    }
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "gemini"
+      },
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "media": {
+      "image": {
+        "enabled": true,
+        "attachments": {
+          "mode": "all",
+          "maxAttachments": 6,
+          "prefer": "first"
+        },
+        "maxBytes": 25000000
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "YOUR_TELEGRAM_USER_ID"
+      ],
+      "groupPolicy": "disabled",
+      "streaming": {
+        "mode": "partial"
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "YOUR_GATEWAY_TOKEN"
+    },
+    "remote": {
+      "token": "YOUR_REMOTE_TOKEN"
+    }
+  },
+  "session": {
+    "reset": {
+      "mode": "daily",
+      "atHour": 5,
+      "idleMinutes": 120
+    },
+    "maintenance": {
+      "mode": "enforce",
+      "pruneAfter": "30d",
+      "maxEntries": 500
+    }
+  },
+  "plugins": {
+    "entries": {
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true,
+            "frequency": "0 3 * * *",
+            "timezone": "America/Denver",
+            "storage": {
+              "mode": "both",
+              "separateReports": true
+            }
+          }
+        }
+      },
+      "google": {
+        "config": {
+          "webSearch": {
+            "apiKey": "YOUR_GEMINI_API_KEY"
+          }
+        },
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": true
+      },
+      "openai": {
+        "enabled": true
+      }
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  }
+}

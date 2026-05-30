@@ -22,9 +22,6 @@ agents/main/agent/auth-state.json
 # Exec approval socket token
 exec-approvals.json
 
-# Telegram state (update offset, command hashes)
-telegram/
-
 # Gateway auth (local token)
 gateway/
 
@@ -36,32 +33,38 @@ workspace/health/profile.md
 workspace/health/biometrics.md
 workspace/health/whoop/profile.json
 workspace/health/whoop/body_measurement.json
+# Health logs mix in identity details (age, height, weight, health history)
+workspace/health/logs/
 
 # ============================================================
 # RUNTIME & EPHEMERAL STATE
 # ============================================================
 
-# Conversation session history
-agents/main/sessions/
-
 # SQLite databases (binary, not useful in git)
 memory/main.sqlite
 tasks/
 
-# Background delivery queue
-delivery-queue/
+# Delivery queue content (failed messages are ephemeral)
+delivery-queue/failed/*
+!delivery-queue/failed/.gitkeep
 
-# Browser profile data
+# Browser profile data (binary cache, not useful in git)
 browser/
 
 # Cron run logs (ephemeral)
 cron/runs/
 
-# Device pairing state
-devices/
+# Device pairing state (contains auth tokens)
+devices/paired.json
+devices/pending.json
 
-# Command audit logs
-logs/
+# Command/audit logs (may contain sensitive command history)
+logs/commands.log
+logs/config-audit.jsonl
+
+# Session history content (conversation history)
+agents/main/sessions/*
+!agents/main/sessions/.gitkeep
 
 # Update check state
 update-check.json
